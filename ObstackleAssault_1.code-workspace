@@ -10,12 +10,7 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off",
-		"C_Cpp.default.forcedInclude": [
-			"${default}",
-			"C:\\Users\\Nedim\\Desktop\\Cpp Game development\\OAG\\ObstackleAssault_1\\Intermediate\\Build\\Win64\\UnrealEditor\\Development\\ObstackleAssault_1\\Definitions.ObstackleAssault_1.h",
-			"C:\\Users\\Nedim\\Desktop\\Cpp Game development\\OAG\\ObstackleAssault_1\\Intermediate\\Build\\Win64\\ObstackleAssault_1Editor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
-		]
+		"typescript.tsc.autoDetect": "off"
 	},
 	"extensions": {
 		"recommendations": [
