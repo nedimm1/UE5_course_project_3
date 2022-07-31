@@ -19,6 +19,8 @@ void AMovingPlatform::BeginPlay()
 	Myint = 9;
 
 	AplusB = inputA + inputB;
+
+	AplusBFloat = inputFloatA + inputFloatB;
 	
 }
 
