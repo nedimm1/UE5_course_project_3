@@ -15,6 +15,8 @@ AMovingPlatform_0::AMovingPlatform_0()
 void AMovingPlatform_0::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Myint = 9;
 	
 }
 
