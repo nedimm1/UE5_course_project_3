@@ -17,6 +17,8 @@ void AMovingPlatform::BeginPlay()
 	Super::BeginPlay();
 
 	Myint = 9;
+
+	AplusB = inputA + inputB;
 	
 }
 
