@@ -36,6 +36,8 @@ void AMovingPlatform::Tick(float DeltaTime)
 
     if (DistanceMoved > MoveDistance) {
 		PlatformVelocity = -PlatformVelocity;
+		StartLocation = CurrentLocation;
+
 
 	}
  
