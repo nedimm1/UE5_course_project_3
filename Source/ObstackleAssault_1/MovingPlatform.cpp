@@ -30,6 +30,13 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MovePlatform(DeltaTime);
+
+}
+
+
+void AMovingPlatform::MovePlatform(float DeltaTime){
+
 	FVector CurrentLocation = GetActorLocation();
      
 	CurrentLocation = CurrentLocation + PlatformVelocity * DeltaTime;
@@ -53,11 +60,8 @@ void AMovingPlatform::Tick(float DeltaTime)
 		
 		PlatformVelocity = -PlatformVelocity;
 
-		
-
-
 	}
  
 
-}
 
+}
