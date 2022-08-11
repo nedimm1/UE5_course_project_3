@@ -71,12 +71,12 @@ void AMovingPlatform::RotatePlatform(float DeltaTime){
 
 }
 
-bool AMovingPlatform::ShouldPlatformReturn(){
+bool AMovingPlatform::ShouldPlatformReturn() const{
 
 	return GetDistanceMoved() > MoveDistance;
 }
 
-float AMovingPlatform::GetDistanceMoved(){
+float AMovingPlatform::GetDistanceMoved() const{
 
 	return FVector::Dist(StartLocation, GetActorLocation()); 
 
