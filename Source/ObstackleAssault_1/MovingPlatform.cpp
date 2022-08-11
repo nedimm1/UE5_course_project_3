@@ -83,3 +83,5 @@ float AMovingPlatform::GetDistanceMoved() const{
 	return FVector::Dist(StartLocation, GetActorLocation()); 
 
 }
+
+
