@@ -31,6 +31,12 @@ void UMover::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 
 	AActor* owner = GetOwner();
 
+	float MyFloat = 5;
+	float* YourFloat = &MyFloat;
+	float FloatValue = *YourFloat;
+
+	UE_LOG(LogTemp, Display, TEXT("YourFloat:  %f"), FloatValue);
+
 	UE_LOG(LogTemp, Display, TEXT("Mover Owner address: %u"), owner);
 
 }
