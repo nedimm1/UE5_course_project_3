@@ -29,6 +29,9 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	FRotator MyRotation = GetComponentRotation();
+	FString RString = MyRotation.ToCompactString();
+	
 	
 }
 
