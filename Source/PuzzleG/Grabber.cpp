@@ -60,6 +60,8 @@ FVector Start = GetComponentLocation();
 
     DrawDebugLine(GetWorld(), Start, End, FColor::Green);
 
+	DrawDebugSphere(GetWorld(), End, 10, 10, FColor::Blue, false, 5);
+
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(GrabRadius);
 	FHitResult HitResult;
 	bool HasHit = GetWorld()->SweepSingleByChannel(
