@@ -44,7 +44,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	UPhysicsHandleComponent* PHandle = GetOwner() -> FindComponentByClass<UPhysicsHandleComponent>();
+	UPhysicsHandleComponent* PHandle = GetPhysicsHandle();
 	if(PHandle == nullptr)
     {
 		return;
@@ -63,7 +63,7 @@ void UGrabber::Release()
 
 void UGrabber::Grab(){
 
-	UPhysicsHandleComponent* PHandle = GetOwner() -> FindComponentByClass<UPhysicsHandleComponent>();
+	UPhysicsHandleComponent* PHandle = GetPhysicsHandle();
 	if(PHandle == nullptr)
     {
 		return;
@@ -88,8 +88,15 @@ void UGrabber::Grab(){
 		Sphere
 	);
 	if (HasHit)
-	{
-	   PHandle -> GrabComponentAtLocationWithRotation(
+	
+	   DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Green, false, 5);
+		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Red, false, 5);
+		AActor *HitActor = HitResult.GetActor();
+		UE_LOG(LogTemp, Display, TEXT("Hit actor: %s"), *HitActor->GetActorNameOrLabel());
+
+
+
+	    PHandle -> GrabComponentAtLocationWithRotation(
 		HitResult.GetComponent(),
 		NAME_None,
 		HitResult.ImpactPoint,
@@ -99,7 +106,18 @@ void UGrabber::Grab(){
 	}
     
 
+    UPhysicsHandleComponent* UGrabber::GetPhysicsHandle() const{
+
+	UPhysicsHandleComponent* Result = GetOwner() -> FindComponentByClass<UPhysicsHandleComponent>();
+	if(Result == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Grabber requires a UPhysicsHandleComponent."));
+
+		return Result;
+	}
+		
+	}
 
 
-}
+
 
