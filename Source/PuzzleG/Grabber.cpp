@@ -7,7 +7,6 @@
 
 #include "DrawDebugHelpers.h"
 
-#include "PhysicsEngine/PhysicsHandleComponent.h"
 
 // Sets default values for this component's properties
 UGrabber::UGrabber()
@@ -24,17 +23,6 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
-	UPhysicsHandleComponent* PHandle = GetOwner() -> FindComponentByClass<UPhysicsHandleComponent>();
-	if (PHandle != nullptr)
-	{
-		UE_LOG(LogTemp, Display, TEXT("Got Physics Handle: %s"), *PHandle->GetName());
-	}
-
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No Physics Handle Found!"));
-	}
 
 }
 
@@ -84,10 +72,10 @@ void UGrabber::Grab(){
 		HitResult,
 		Start, End,
 		FQuat::Identity,
-		ECC_GameTraceChannel1,
+		ECC_GameTraceChannel2,
 		Sphere
 	);
-	if (HasHit)
+	if (HasHit) {
 	
 	   DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Green, false, 5);
 		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Red, false, 5);
@@ -103,8 +91,12 @@ void UGrabber::Grab(){
 		HitResult.GetComponent() -> GetComponentRotation()
 		
 	   );
-	}
+	};
     
+		
+	};
+
+
 
     UPhysicsHandleComponent* UGrabber::GetPhysicsHandle() const{
 
@@ -113,10 +105,13 @@ void UGrabber::Grab(){
 	{
 		UE_LOG(LogTemp, Error, TEXT("Grabber requires a UPhysicsHandleComponent."));
 
-		return Result;
-	}
 		
 	}
+ 
+    return Result;
+
+	
+
 
 
 
