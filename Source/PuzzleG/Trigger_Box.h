@@ -14,8 +14,15 @@ class PUZZLEG_API UTrigger_Box : public UBoxComponent
 {
 	GENERATED_BODY()
 
+public:
+    UTrigger_Box();
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
 };
