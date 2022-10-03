@@ -13,7 +13,6 @@ void UTrigger_Box::BeginPlay()
 {
 	Super::BeginPlay();
 
-    UE_LOG(LogTemp, Display, TEXT("Trigger Component Alive"));
 
 }
 
@@ -21,7 +20,13 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-    UE_LOG(LogTemp, Display, TEXT("Trigger Component is ticking"));
+    TArray<AActor*> Actors;
+    GetOverlappingActors(Actors);
 
+    if (Actors.Num() > 0)
+    {
+        FString ActorName = Actors[0]->GetActorNameOrLabel();
+        UE_LOG(LogTemp, Display, TEXT("Overlapping: %s"), *ActorName);
+    }
 
 }
