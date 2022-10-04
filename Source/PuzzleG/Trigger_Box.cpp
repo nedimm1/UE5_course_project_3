@@ -34,10 +34,10 @@ AActor* UTrigger_Box::GetAcceptableActor() const
     {
         if(Actor->ActorHasTag(MyActorTag))
         {
-            ReturnActor = Actor;
-         UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
+          return Actor;
+          UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
         }
     }
 
-    return ReturnActor;
+    return nullptr;
     }
