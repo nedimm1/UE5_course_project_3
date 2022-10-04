@@ -20,7 +20,16 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+    AActor* Actor = GetAcceptableActor();
+    if(Actor != nullptr)
+    {
+      UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
+    }
 
+    else
+    {
+       UE_LOG(LogTemp, Display, TEXT("Relockinging: "));
+    }
 
 }
 
@@ -35,8 +44,10 @@ AActor* UTrigger_Box::GetAcceptableActor() const
         if(Actor->ActorHasTag(MyActorTag))
         {
           return Actor;
-          UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
+      
         }
+
+    
     }
 
     return nullptr;
