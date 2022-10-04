@@ -25,8 +25,10 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 
     for(AActor* Actor: Actors)
     {
-        FString ActorName = Actor->GetActorNameOrLabel();
-        UE_LOG(LogTemp, Display, TEXT("Overlapping: %s"), *ActorName);
+        if(Actor->ActorHasTag("Unlocke1"))
+        {
+         UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
+        }
     }
 
 }
