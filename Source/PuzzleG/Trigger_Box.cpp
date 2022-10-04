@@ -20,15 +20,24 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+
+
+}
+
+AActor* UTrigger_Box::GetAcceptableActor() const
+{
+    AActor* ReturnActor = nullptr;
     TArray<AActor*> Actors;
     GetOverlappingActors(Actors);
 
     for(AActor* Actor: Actors)
     {
-        if(Actor->ActorHasTag("Unlocke1"))
+        if(Actor->ActorHasTag(MyActorTag))
         {
+            ReturnActor = Actor;
          UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
         }
     }
 
-}
+    return ReturnActor;
+    }
