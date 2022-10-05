@@ -33,6 +33,11 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 
 }
 
+void UTrigger_Box::SetMover(UMover* MyMover)
+{
+  Mover = MyMover;
+}
+
 AActor* UTrigger_Box::GetAcceptableActor() const
 {
     AActor* ReturnActor = nullptr;
