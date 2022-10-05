@@ -23,12 +23,12 @@ void UTrigger_Box::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
     AActor* Actor = GetAcceptableActor();
     if(Actor != nullptr)
     {
-      UE_LOG(LogTemp, Display, TEXT("Unlockinging: "));
+      Mover->SetShoudMove(true);
     }
 
     else
     {
-       UE_LOG(LogTemp, Display, TEXT("Relockinging: "));
+      Mover->SetShoudMove(false);
     }
 
 }
