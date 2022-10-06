@@ -100,6 +100,7 @@ void UGrabber::Grab(){
 
 		AActor *HitActor = HitResult.GetActor();
 
+        HitActor->Tags.Add("Grabbed");
 
 		UE_LOG(LogTemp, Display, TEXT("Hit actor: %s"), *HitActor->GetActorNameOrLabel());
 
