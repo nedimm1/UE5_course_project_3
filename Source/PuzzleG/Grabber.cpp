@@ -93,7 +93,14 @@ void UGrabber::Grab(){
 	
 	   DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Green, false, 5);
 		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Red, false, 5);
+
+		UPrimitiveComponent* HitComponent = HitResult.GetComponent();
+		HitComponent->SetSimulatePhysics(true);
+		HitComponent->WakeAllRigidBodies();
+
 		AActor *HitActor = HitResult.GetActor();
+
+
 		UE_LOG(LogTemp, Display, TEXT("Hit actor: %s"), *HitActor->GetActorNameOrLabel());
 
 
