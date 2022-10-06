@@ -52,11 +52,14 @@ AActor* UTrigger_Box::GetAcceptableActor() const
 
     for(AActor* Actor: Actors)
     {
-        if(Actor->ActorHasTag(MyActorTag))
+        bool HasAcceptableTag = Actor->ActorHasTag(MyActorTag);
+        bool IsGrabbed = Actor->ActorHasTag("Grabbed");
+        
+        if (HasAcceptableTag && !IsGrabbed)
         {
-          return Actor;
-      
+            return Actor;
         }
+
 
     
     }
