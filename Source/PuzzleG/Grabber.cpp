@@ -66,7 +66,9 @@ void UGrabber::Release()
 	}
 
 	if (PHandle -> GetGrabbedComponent() != nullptr)
-	{
+	{   
+		AActor* GrabbedActor = PHandle -> GetGrabbedComponent()->GetOwner();
+		GrabbedActor->Tags.Remove("Grabbed");
 		PHandle -> ReleaseComponent();
 	}
 
